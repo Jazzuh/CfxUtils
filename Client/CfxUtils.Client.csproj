@@ -1,0 +1,26 @@
+<Project Sdk="CitizenFX.Sdk.Client/0.2.3">
+    <PropertyGroup>
+      <LangVersion>9</LangVersion>
+      <Title>CfxUtils.Client</Title>
+      <Authors>Jazzuh</Authors>
+      <Description>Provides a collection of helpers and wrapper classes for FiveM and RedM</Description>
+      <PackageTags>fivem,gta,citizenfx,cfx,redm</PackageTags>
+      <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+      <RepositoryUrl></RepositoryUrl>
+      <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.2" ExcludeAssets="Compile" GeneratePathProperty="true" />
+      <Reference Include="Newtonsoft.Json">
+        <HintPath>$(PkgNewtonsoft_Json)\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+      </Reference>
+
+      <Compile Include="../Shared/**/*.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="..\license.txt">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+</Project>
