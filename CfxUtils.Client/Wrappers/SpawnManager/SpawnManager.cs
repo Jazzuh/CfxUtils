@@ -6,7 +6,15 @@ using Newtonsoft.Json;
 
 namespace CfxUtils.Wrappers.SpawnManager
 {
+    /// <summary>
+    /// Delegate that is ran after a player has successfully spawned 
+    /// </summary>
+    /// <param name="point">The spawn point where the player has spawned</param>
     public delegate void SpawnCallback(SpawnPoint point);
+
+    /// <summary>
+    /// Delegate that is ran after a player dies to control how they respawn
+    /// </summary>
     public delegate void AutoSpawnCallback();
 
     /// <summary>
