@@ -15,12 +15,6 @@
         <HintPath>$(PkgNewtonsoft_Json)\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
       </Reference>
 
-      <Compile Include="../Shared/**/*.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="..\license.txt">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
+      <Compile Include="../CfxUtils.Shared/**/*.cs" />
     </ItemGroup>
 </Project>
