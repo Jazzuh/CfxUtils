@@ -33,11 +33,15 @@ namespace CfxUtils.Shared.Convar
         public Convar(string varName, TConvarType defaultValue)
         {
             VarName = varName;
+            DefaultValue = defaultValue;
 
 #if SERVER
+            // If the current value of the convar is the default value it may not have been used before so we set it so that it can be used like a command in the console
+            if (Value.Equals(defaultValue))
+            {
             Value = defaultValue;
+            }
 #endif
-            DefaultValue = defaultValue;
         }
 
 #if SERVER
