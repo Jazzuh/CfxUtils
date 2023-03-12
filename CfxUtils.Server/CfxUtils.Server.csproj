@@ -9,7 +9,8 @@
       <Authors>Jazzuh</Authors>
       <Description>Provides a collection of helpers and wrapper classes for FiveM and RedM</Description>
       <PackageTags>fivem,gta,citizenfx,cfx,redm</PackageTags>
-      <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+      <PackageReleaseNotes>Add logging features</PackageReleaseNotes>
+      <VersionPrefix>1.1.0</VersionPrefix>
     </PropertyGroup>
   
     <ItemGroup>
