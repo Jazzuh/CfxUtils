@@ -1,5 +1,6 @@
 using CitizenFX.Core.Native;
 using System;
+using CfxUtils.Shared.Logging;
 
 namespace CfxUtils.Shared.Convar
 {
@@ -39,7 +40,7 @@ namespace CfxUtils.Shared.Convar
             // If the current value of the convar is the default value it may not have been used before so we set it so that it can be used like a command in the console
             if (Value.Equals(defaultValue))
             {
-            Value = defaultValue;
+                Value = defaultValue;
             }
 #endif
         }
@@ -92,7 +93,7 @@ namespace CfxUtils.Shared.Convar
             }
             catch (Exception ex)
             {
-                // TODO Log.Error
+                Log.Error(ex);
             }
 
             return returnValue;
