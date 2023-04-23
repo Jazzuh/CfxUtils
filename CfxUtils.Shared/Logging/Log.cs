@@ -14,10 +14,9 @@ namespace CfxUtils.Shared.Logging
         /// <summary>
         /// The current log level of this resource
         /// </summary>
-        public static LogLevel Level => _logLevel ??= _logLevelConvar.Value;
+        public static LogLevel Level => _logLevelConvar.Value;
 
         private static ReplicatedConvar<LogLevel> _logLevelConvar = new ($"{API.GetCurrentResourceName()}_LogLevel", LogLevel.Information);
-        private static LogLevel? _logLevel;
 
         private static Dictionary<LogLevel, string> _logToColorMap = new ()
         {
