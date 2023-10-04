@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+      <TargetFramework>netstandard2.0</TargetFramework>
+      <DebugType>portable</DebugType>
+      <TargetName>$(AssemblyName).net</TargetName>
+      <DefineConstants>SERVER</DefineConstants>
+      <LangVersion>9</LangVersion>
+      <Title>CfxUtils.Logging.Server</Title>
+      <Authors>Jazzuh</Authors>
+      <Description>Provides helpers for formatting logging in FXServer</Description>
+      <PackageTags>fivem,gta,citizenfx,cfx,redm,fxserver,fx,log,logging,helper,server</PackageTags>
+      <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+      <VersionPrefix>1.0.0</VersionPrefix>
+    </PropertyGroup>
+  
+    <ItemGroup>
+      <PackageReference Include="CitizenFX.Core.Server" Version="1.0.*" />
+
+      <Compile Include="../Shared/**/*.cs" />
+    </ItemGroup>
+</Project>
+  

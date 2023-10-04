@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+      <TargetFramework>netstandard2.0</TargetFramework>
+      <DebugType>portable</DebugType>
+      <TargetName>$(AssemblyName).net</TargetName>
+      <DefineConstants>SERVER</DefineConstants>
+      <LangVersion>9</LangVersion>
+      <Title>CfxUtils.Wrappers.Map.Server</Title>
+      <Authors>Jazzuh</Authors>
+      <Description>Provides helpers and wrappers for the mapmanager resource for FiveM and RedM</Description>
+      <PackageTags>fivem,gta,citizenfx,cfx,redm,mapmanager,helper,wrapper,server</PackageTags>
+      <PackageReleaseNotes>
+        Initial release
+      </PackageReleaseNotes>
+      <VersionPrefix>1.0.0</VersionPrefix>
+    </PropertyGroup>
+  
+    <ItemGroup>
+      <PackageReference Include="CitizenFX.Core.Server" Version="1.0.*" />
+      <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  
+      <Compile Include="../Shared/**/*.cs" />
+    </ItemGroup>
+</Project>
+  

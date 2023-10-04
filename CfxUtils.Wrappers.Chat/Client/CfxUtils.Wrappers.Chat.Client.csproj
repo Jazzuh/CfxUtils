@@ -1,0 +1,21 @@
+﻿<Project Sdk="CitizenFX.Sdk.Client/0.2.3">
+    <PropertyGroup>
+      <LangVersion>9</LangVersion>
+      <Title>CfxUtils.Wrappers.Chat.Client</Title>
+      <Authors>Jazzuh</Authors>
+      <Description>Provides helpers and wrappers for the chat resource for FiveM and RedM</Description>
+      <PackageTags>fivem,gta,citizenfx,cfx,redm,chat,helper,wrapper,client</PackageTags>
+      <PackageReleaseNotes>
+        Initial release
+      </PackageReleaseNotes>
+      <VersionPrefix>1.0.0</VersionPrefix>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Include="../Shared/**/*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\CfxUtils.Convar\Client\CfxUtils.Convar.Client.csproj" />
+    </ItemGroup>
+</Project>
