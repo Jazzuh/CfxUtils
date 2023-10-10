@@ -1,5 +1,5 @@
 ﻿using CfxUtils.Convar.Shared;
-using CitizenFX.Core.Native;
+using CitizenFX.Server.Native;
 
 namespace CfxUtils.Convar.Server
 {
@@ -14,7 +14,7 @@ namespace CfxUtils.Convar.Server
 
         protected override void SetConvar(TConvarType value)
         {
-            API.SetConvarServerInfo(VarName, value.ToString());
+            Natives.SetConvarServerInfo(VarName, value.ToString());
         }
     }
 }

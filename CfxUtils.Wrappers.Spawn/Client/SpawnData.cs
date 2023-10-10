@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using CitizenFX.Core;
-using CitizenFX.Core.Native;
+using CitizenFX.FiveM;
+
 
 namespace CfxUtils.Wrappers.SpawnManager
 {
@@ -25,7 +26,7 @@ namespace CfxUtils.Wrappers.SpawnManager
         /// <summary>
         /// The model to set this player to when spawning them
         /// </summary>
-        public Hash Model { get; set; }
+        public PedHash Model { get; set; }
 
         /// <summary>
         /// Decides if the players screen should fade in while spawning them at this point
@@ -56,7 +57,7 @@ namespace CfxUtils.Wrappers.SpawnManager
 
             if (spawnObj.TryGetValue("model", out var model))
             {
-                Model = (Hash)model;
+                Model = (PedHash)model;
             }
 
             if (spawnObj.TryGetValue("skipFade", out var skipFade))

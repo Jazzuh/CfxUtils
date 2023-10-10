@@ -1,6 +1,10 @@
-using CitizenFX.Core.Native;
 using System;
 using CitizenFX.Core;
+using SharedNatives = CitizenFX.Shared.Native.Natives;
+
+#if SERVER
+using ServerNatives = CitizenFX.Server.Native.Natives;
+#endif
 
 namespace CfxUtils.Convar.Shared
 {
@@ -52,7 +56,7 @@ namespace CfxUtils.Convar.Shared
         /// <param name="value">Value to set the convar to</param>
         protected virtual void SetConvar(TConvarType value)
         {
-            API.SetConvar(VarName, value.ToString());
+            ServerNatives.SetConvar(VarName, value.ToString());
         }
 #endif
 
@@ -67,7 +71,7 @@ namespace CfxUtils.Convar.Shared
             try
             {
                 var type = typeof(TConvarType);
-                var convarValue = API.GetConvar(VarName, DefaultValue.ToString());
+                var convarValue = SharedNatives.GetConvar(VarName, DefaultValue.ToString()).ToString();
 
                 if (type == typeof(int) || type == typeof(float))
                 {
@@ -88,7 +92,7 @@ namespace CfxUtils.Convar.Shared
                 }
                 else
                 {
-                    returnValue = (TConvarType)Convert.ChangeType(API.GetConvar(VarName, DefaultValue.ToString()), typeof(TConvarType));
+                    returnValue = (TConvarType)Convert.ChangeType(SharedNatives.GetConvar(VarName, DefaultValue.ToString()), typeof(TConvarType));
                 }
             }
             catch (Exception ex)

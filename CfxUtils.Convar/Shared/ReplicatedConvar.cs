@@ -1,4 +1,6 @@
-using CitizenFX.Core.Native;
+#if SERVER
+using CitizenFX.Server.Native;
+#endif
 
 namespace CfxUtils.Convar.Shared
 {
@@ -14,7 +16,7 @@ namespace CfxUtils.Convar.Shared
 #if SERVER
         protected override void SetConvar(TConvarType value)
         {
-            API.SetConvarReplicated(VarName, value.ToString());
+            Natives.SetConvarReplicated(VarName, value.ToString());
         }
 #endif
     }

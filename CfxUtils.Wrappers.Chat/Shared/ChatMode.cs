@@ -43,7 +43,7 @@ namespace CfxUtils.Wrappers.Chat
 #if SERVER
             _onMessageInternal = (source, outMessage, hookRef) =>
             {
-                MessageCallback?.Invoke(Chat.Instance.Players[source], new ChatMessage(outMessage), new ChatMessageHooks(hookRef));
+                MessageCallback?.Invoke(Chat.Players[source], new ChatMessage(outMessage), new ChatMessageHooks(hookRef));
             };
 #endif
         }

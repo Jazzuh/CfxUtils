@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CitizenFX.Core;
+using CitizenFX.Server;
 
 namespace CfxUtils.Wrappers.Chat
 {
@@ -48,7 +48,7 @@ namespace CfxUtils.Wrappers.Chat
         /// <param name="target">The player to route the message to</param>
         public void SetRouting(Player target)
         {
-            _hookObj.setRouting(int.Parse(target.Handle));
+            _hookObj.setRouting(target.Handle);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace CfxUtils.Wrappers.Chat
         /// <param name="targets">The players to route the message to</param>
         public void SetRouting(IEnumerable<Player> targets)
         {
-            _hookObj.setRouting(targets.Select(o => int.Parse(o.Handle)).ToArray());
+            _hookObj.setRouting(targets.Select(o => o.Handle).ToArray());
         }
     }
 }

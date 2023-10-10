@@ -1,4 +1,4 @@
-﻿using CitizenFX.Core;
+﻿using CitizenFX.Server;
 
 namespace CfxUtils.Wrappers.Chat
 {

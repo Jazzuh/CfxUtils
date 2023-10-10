@@ -10,7 +10,7 @@
       <Description>Provides helpers for formatting logging in FXServer</Description>
       <PackageTags>fivem,gta,citizenfx,cfx,redm,fxserver,fx,log,logging,helper,client</PackageTags>
       <PackageReleaseNotes>Remove unneeded dependencies</PackageReleaseNotes>
-      <VersionPrefix>1.0.1</VersionPrefix>
+      <VersionPrefix>1.0.1-monov2</VersionPrefix>
     </PropertyGroup>
 
     <ItemGroup>

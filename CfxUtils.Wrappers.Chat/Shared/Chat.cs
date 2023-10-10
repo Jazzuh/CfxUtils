@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using CfxUtils.Convar.Shared;
 using CitizenFX.Core;
 
+#if CLIENT
+using CitizenFX.FiveM;
+#else
+using CitizenFX.Server;
+#endif
+
 namespace CfxUtils.Wrappers.Chat
 {
     /// <summary>
@@ -10,9 +16,7 @@ namespace CfxUtils.Wrappers.Chat
     /// </summary>
     public class Chat : BaseScript
     {
-        public new PlayerList Players => base.Players;
-
-        internal static Chat Instance { get; set; }
+        public static PlayerList Players = new PlayerList();
 
 #if SERVER
         /// <summary>
@@ -43,8 +47,6 @@ namespace CfxUtils.Wrappers.Chat
 
         public Chat()
         {
-            Instance = this;
-
             _chatExport = Exports["chat"];
             _chatModes = new();
         }
@@ -56,9 +58,9 @@ namespace CfxUtils.Wrappers.Chat
         public static void AddMessage(ChatMessage message)
         {
 #if CLIENT
-            TriggerEvent("chat:addMessage", message.EventFormat());
+            Events.TriggerEvent("chat:addMessage", message.EventFormat());
 #elif SERVER
-            TriggerClientEvent("chat:addMessage", message.EventFormat());
+            Events.TriggerAllClientsEvent("chat:addMessage", message.EventFormat());
 #endif
         }
 
@@ -69,9 +71,9 @@ namespace CfxUtils.Wrappers.Chat
         public static void AddMessage(string message)
         {
 #if CLIENT
-            TriggerEvent("chat:addMessage", message);
+            Events.TriggerEvent("chat:addMessage", message);
 #elif SERVER
-            TriggerClientEvent("chat:addMessage", message);
+            Events.TriggerAllClientsEvent("chat:addMessage", message);
 #endif
         }
 
@@ -104,7 +106,7 @@ namespace CfxUtils.Wrappers.Chat
         {
             _chatExport.registerMessageHook(new Action<int, dynamic, dynamic>((source, outMessage, hookRefs) =>
             {
-                cb(Instance.Players[source], new ChatMessage(outMessage), new ChatMessageHooks(hookRefs));
+                cb(Chat.Players[source], new ChatMessage(outMessage), new ChatMessageHooks(hookRefs));
             }));
         }
 

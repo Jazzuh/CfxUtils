@@ -10,13 +10,20 @@
       <Description>Provides helper classes for FXServer convars</Description>
       <PackageTags>fivem,gta,citizenfx,cfx,redm,fxserver,fx,convar,helper</PackageTags>
       <PackageReleaseNotes>Initial release</PackageReleaseNotes>
-      <VersionPrefix>1.0.0</VersionPrefix>
+      <VersionPrefix>1.0.0-monov2</VersionPrefix>
     </PropertyGroup>
   
     <ItemGroup>
-      <PackageReference Include="CitizenFX.Core.Server" Version="1.0.*" />
-  
       <Compile Include="../Shared/**/*.cs" />
+    </ItemGroup>
+  
+    <ItemGroup>
+      <Reference Include="CitizenFX.Core">
+        <HintPath>..\..\references\CitizenFX.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="CitizenFX.Server">
+        <HintPath>..\..\references\CitizenFX.Server.dll</HintPath>
+      </Reference>
     </ItemGroup>
 </Project>
   
