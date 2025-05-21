@@ -8,7 +8,7 @@ namespace CfxUtils.Convar.Shared
     /// Represents a console variable
     /// </summary>
     /// <typeparam name="TConvarType">The type of the stored convar value</typeparam>
-    public class Convar<TConvarType> where TConvarType : struct
+    public class Convar<TConvarType>
     {
         /// <summary>
         /// The name of the convar
@@ -79,12 +79,16 @@ namespace CfxUtils.Convar.Shared
                 }
                 else if (type.IsEnum)
                 {
-                    if (!Enum.TryParse(convarValue, out TConvarType enumValue))
-                    {
-                        enumValue = DefaultValue;
-                    }
+                    // The versions of .net that we have to use for cfx don't have the version of Enum.TryParse where we can just pass a type instead of being generic, so we have to do this.
 
-                    returnValue = enumValue;
+                    try
+                    {
+                        returnValue = (TConvarType)Enum.Parse(type, convarValue);
+                    }
+                    catch
+                    {
+                        returnValue = DefaultValue;
+                    }
                 }
                 else
                 {
